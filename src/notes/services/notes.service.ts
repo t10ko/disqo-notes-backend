@@ -11,7 +11,7 @@ export class NotesService {
     private notesRepository: NotesRepository,
   ) {}
 
-  async findAll(searchString: string): Promise<Note[]> {
+  async getList(searchString: string): Promise<Note[]> {
     return await this.notesRepository.getNotes(searchString);
   }
 

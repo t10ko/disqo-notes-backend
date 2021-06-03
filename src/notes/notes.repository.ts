@@ -6,14 +6,16 @@ import { NoteDto } from './note.dto';
 @EntityRepository(Note)
 export class NotesRepository extends Repository<Note> {
   async getNotes(searchString: string): Promise<Note[]> {
-    const query = this.createQueryBuilder('transaction');
-
+    const query = this.createQueryBuilder('note');
     if (searchString) {
       query.andWhere('(note.title LIKE :search OR note.text LIKE :search)', {
         search: `%${searchString}%`,
       });
     }
 
+    query.orderBy({
+      id: 'DESC',
+    });
     return await query.getMany();
   }
 
