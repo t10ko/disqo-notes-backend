@@ -1,0 +1,11 @@
+---
+application:
+  name: "disqo-notes-backend"
+  project: "disqo-notes"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-disqo-notes-backend"
+  routes:
+  - application_name: "disqo-notes-backend"
+    paths:
+    - "/*"
